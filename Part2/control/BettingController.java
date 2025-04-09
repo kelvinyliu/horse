@@ -22,6 +22,7 @@ public class BettingController {
         setupListeners();
     }
 
+    // add listeners to buttons and changes.
     private void setupListeners() {
         view.getPlaceBetButton().addActionListener(e -> {
             String horse = (String) view.getHorseSelector().getSelectedItem();
@@ -62,6 +63,7 @@ public class BettingController {
         view.setVisible(true);
     }
 
+    // resets the list of horses you can bet on and sets the odds.
     public void updateHorseList(List<Horse> horses) {
         view.getHorseSelector().removeAllItems();
         for (Horse h : horses) {
