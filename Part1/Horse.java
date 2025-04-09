@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Horse here.
+ * A class for horse for a racing simulator
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kelvin Liu 
+ * @version 1
  */
 public class Horse
 {
@@ -31,7 +31,7 @@ public class Horse
         this.goBackToStart();
     }
 
-    //Other methods of class Horse
+    //Other methods of class Horse, mainly getters and setters
     public void fall()
     {
         this.horseFellDuringRace = true;
@@ -75,9 +75,11 @@ public class Horse
 
     public void setConfidence(double newConfidence)
     {
-        // Cannot set confidence more than 1.0,
+        // Cannot set confidence more than 1.0, also cannot be 0.0
         if (newConfidence > 1.0) {
             newConfidence = 1.0;
+        } else if (newConfidence <= 0.0) {
+            newConfidence = 0.1;
         }
         this.horseConfidence = newConfidence;
     }
