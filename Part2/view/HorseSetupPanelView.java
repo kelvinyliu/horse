@@ -34,6 +34,7 @@ public class HorseSetupPanelView extends JPanel {
         return horses;
     }
 
+    // bundle horse data into object for easier storage until usage.
     public static class HorseData {
         public String name;
         public char symbol;
@@ -51,6 +52,7 @@ public class HorseSetupPanelView extends JPanel {
 
     }
 
+    // row of configuration for each horse.
     private static class HorseFormRow extends JPanel {
         private final JTextField nameField;
         private final JTextField symbolField;
@@ -103,6 +105,7 @@ public class HorseSetupPanelView extends JPanel {
             updateHash();
         }
 
+        // create hash for a specific horse configuration, this is used in horse statistics.
         private void updateHash() {
             String name = nameField.getText().trim();
             String symbol = symbolField.getText().trim();
