@@ -2,6 +2,8 @@ package view;
 
 import model.Horse;
 import model.HorseSetupModel;
+import model.Horseshoe;
+import model.Saddle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,10 +75,10 @@ public class RaceTrackView extends JPanel {
 
     private String horseDisplay(Horse h) {
         String visual = String.valueOf(h.getSymbol());
-        if (h.getSaddle() != null && h.getSaddle() != model.Saddle.NONE) {
+        if (h.getSaddle() != null && h.getSaddle() != Saddle.NONE) {
             visual += "\uD83D\uDCBA";
         }
-        if (h.getHorseshoe() != null && h.getHorseshoe() != model.Horseshoe.NONE) {
+        if (h.getHorseshoe() != null && h.getHorseshoe() != Horseshoe.NONE) {
             visual += "Ʊ";
         }
         return visual;
