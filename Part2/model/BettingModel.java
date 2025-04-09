@@ -19,7 +19,7 @@ public class BettingModel {
         }
     }
 
-
+    // creates bet and appends it to bet amount
     public void placeBet(String horseName, double amount) {
         double currentOdds = odds.getOrDefault(horseName, 1.0);
         betHistory.add(new Bet(horseName, amount, currentOdds));
