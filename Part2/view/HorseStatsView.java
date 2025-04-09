@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 import java.awt.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -95,9 +96,9 @@ public class HorseStatsView extends JFrame {
     }
 
     private String formatTrackBreakdown(List<RaceResult> results) {
-        Map<String, Integer> raceCounts = new java.util.HashMap<>();
-        Map<String, Integer> winCounts = new java.util.HashMap<>();
-        Map<String, Double> bestTimes = new java.util.HashMap<>();
+        Map<String, Integer> raceCounts = new HashMap<>();
+        Map<String, Integer> winCounts = new HashMap<>();
+        Map<String, Double> bestTimes = new HashMap<>();
 
         for (RaceResult r : results) {
             String key = r.trackShape + " - " + r.weather + " (" + r.laneDistance + "m)";
