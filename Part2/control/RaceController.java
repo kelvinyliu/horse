@@ -147,11 +147,13 @@ public class RaceController {
 
 
         // change confidence depending on won / lost race.
-        for (Horse h : horseModel.horses) {
-            if (h != wonHorse) {
-                h.setConfidence(h.getConfidence() - 0.05);
-            } else {
-                h.setConfidence(h.getConfidence() + 0.05);
+        if (view.getSetupWindow().getConfigPanel().isDynamicConfidenceEnabled()) {
+            for (Horse h : horseModel.horses) {
+                if (h != wonHorse) {
+                    h.setConfidence(h.getConfidence() - 0.05);
+                } else {
+                    h.setConfidence(h.getConfidence() + 0.05);
+                }
             }
         }
 
