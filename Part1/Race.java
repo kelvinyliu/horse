@@ -91,6 +91,12 @@ public class Race
             printRace();
 
             if (lane1Horse.hasFallen() && lane2Horse.hasFallen() && lane3Horse.hasFallen()) {
+
+                // reduce confidence after a loss
+                lane1Horse.setConfidence(lane1Horse.getConfidence() - 0.05);
+                lane2Horse.setConfidence(lane2Horse.getConfidence() - 0.05);
+                lane3Horse.setConfidence(lane3Horse.getConfidence() - 0.05);
+
                 System.out.println("All horses are fallen, all lost!");
                 finished = true;
                 return;
@@ -110,13 +116,17 @@ public class Race
 
         ArrayList<Horse> winningHorses = new ArrayList<>();
 
+        // add to winning horse list and increase confidence by 0.05
         if (raceWonBy(lane1Horse)) {
+            lane1Horse.setConfidence(lane1Horse.getConfidence() + 0.05);
             winningHorses.add(lane1Horse);
         }
         if (raceWonBy(lane2Horse)) {
+            lane2Horse.setConfidence(lane2Horse.getConfidence() + 0.05);
             winningHorses.add(lane2Horse);
         }
         if (raceWonBy(lane3Horse)) {
+            lane3Horse.setConfidence(lane3Horse.getConfidence() + 0.05);
             winningHorses.add(lane3Horse);
         }
 
