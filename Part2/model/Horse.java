@@ -93,11 +93,11 @@ public class Horse
         this.breed = breed;
     }
 
-    public CoatColour getCoatColor() {
+    public CoatColour getCoatColour() {
         return this.coatColour;
     }
 
-    public void setCoatColor(CoatColour coatColour) {
+    public void setCoatColour(CoatColour coatColour) {
         this.coatColour = coatColour;
     }
 

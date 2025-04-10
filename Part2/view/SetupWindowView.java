@@ -12,7 +12,7 @@ public class SetupWindowView extends JFrame {
         super("Race Setup");
 
         configPanel = new ConfigPanelView();
-        horseSetupPanel = new HorseSetupPanelView(configPanel.getLaneCount());
+        horseSetupPanel = new HorseSetupPanelView(0);
 
         setLayout(new BorderLayout());
         add(configPanel, BorderLayout.NORTH);

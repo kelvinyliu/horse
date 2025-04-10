@@ -145,6 +145,16 @@ public class RaceController {
 
         Horse wonHorse = determineWinningHorse();
 
+
+        // change confidence depending on won / lost race.
+        for (Horse h : horseModel.horses) {
+            if (h != wonHorse) {
+                h.setConfidence(h.getConfidence() - 0.05);
+            } else {
+                h.setConfidence(h.getConfidence() + 0.05);
+            }
+        }
+
         if (wonHorse != null) {
             double winnings = bettingModel.calculateWinnings(wonHorse.getName());
             view.getLogPanel().log("Total winnings paid out: $" + String.format("%.2f", winnings));
@@ -165,6 +175,21 @@ public class RaceController {
                     model.getTrackShape(),
                     model.getWeatherCondition()
             ));
+        }
+
+        HorseSetupPanelView setupPanel = view.getSetupWindow().getHorseSetupPanel();
+        for (int i = 0; i < horseModel.horses.size(); i++) {
+            Horse h = horseModel.horses.get(i);
+            HorseSetupPanelView.HorseData updatedData = new HorseSetupPanelView.HorseData();
+            updatedData.name = h.getName();
+            updatedData.symbol = h.getSymbol();
+            updatedData.confidence = h.getConfidence();
+            updatedData.breed = h.getBreed();
+            updatedData.coatColour = h.getCoatColour();
+            updatedData.saddle = h.getSaddle();
+            updatedData.horseshoe = h.getHorseshoe();
+
+            setupPanel.setHorseDataAt(i, updatedData);
         }
 
         view.getResetHorsesButton().setEnabled(true);
