@@ -10,6 +10,7 @@ public class ConfigPanelView extends JPanel {
     private final JSpinner trackLengthSpinner;
     private final JComboBox<String> trackShapeCombo;
     private final JComboBox<WeatherCondition> weatherCombo;
+    private final JCheckBox dynamicConfidenceCheck = new JCheckBox("Enable Dynamic Confidence", false);
 
     private final JButton applyConfigButton;
 
@@ -36,6 +37,7 @@ public class ConfigPanelView extends JPanel {
         add(new JLabel("Weather:"));
         add(weatherCombo);
         add(applyConfigButton);
+        add(dynamicConfidenceCheck);
     }
 
     public int getLaneCount() {
@@ -57,4 +59,9 @@ public class ConfigPanelView extends JPanel {
     public JButton getApplyConfigButton() {
         return applyConfigButton;
     }
+
+    public boolean isDynamicConfidenceEnabled() {
+        return dynamicConfidenceCheck.isSelected();
+    }
+
 }
